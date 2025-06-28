@@ -35,5 +35,5 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
   const splash = document.getElementById("splash-screen");
   splash.style.opacity = "0";
-  setTimeout(() => splash.style.display = "none", 600);
+  splash.style.display = "none";
 });
