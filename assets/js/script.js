@@ -1,37 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("project-list");
+fetch('assets/data/projects.json')
+  .then(res => res.json())
+  .then(projects => {
+    const container = document.getElementById("project-list");
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "project-card";
 
-  // Simulated dynamic project data
-  const projects = [
-    {
-      title: "Auto Formatter",
-      desc: "A macro that auto-formats documents in seconds.",
-      img: "projects/project1/thumbnail.png"
-    },
-    {
-      title: "Image Extractor",
-      desc: "Extracts and saves images from Word files easily.",
-      img: "projects/project2/thumbnail.png"
-    },
-    {
-      title: "Text Replacer",
-      desc: "Quickly replaces predefined keywords in documents.",
-      img: "projects/project3/thumbnail.png"
-    }
-    // Add more if needed
-  ];
+      if (p.top) {
+        const topTag = document.createElement("div");
+        topTag.className = "top-label";
+        topTag.textContent = "TOP";
+        card.appendChild(topTag);
+      }
 
-  projects.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-    card.innerHTML = `
-      <img src="${p.img}" alt="${p.title} Thumbnail" />
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-    `;
-    container.appendChild(card);
+      card.innerHTML += `
+        <img src="${p.img}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+      `;
+      container.appendChild(card);
+    });
+  })
+  .catch(err => {
+    document.getElementById("project-list").innerHTML = "<p>Failed to load projects.</p>";
+    console.error("Failed to load projects.json", err);
   });
-});
 window.addEventListener("load", () => {
   const splash = document.getElementById("splash-screen");
   splash.style.opacity = "0";
