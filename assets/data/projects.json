@@ -1,20 +1,8 @@
 [
   {
-    "title": "Auto Formatter",
-    "desc": "Auto-formats documents in seconds.",
-    "img": "projects/project1/thumbnail.png",
+    "title": "Most Protected sheet",
+    "desc": "Shows how to actively protect a sheet.",
+    "img": "projects/",
     "top": true
-  },
-  {
-    "title": "Image Extractor",
-    "desc": "Extracts and saves images from Word files easily.",
-    "img": "projects/project2/thumbnail.png",
-    "top": false
-  },
-  {
-    "title": "Text Replacer",
-    "desc": "Replaces keywords in documents.",
-    "img": "projects/project3/thumbnail.png",
-    "top": false
   }
 ]
